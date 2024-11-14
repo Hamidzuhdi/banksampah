@@ -3,9 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bank Sampah</title>
+    <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
-    halo
+    <header>
+        <h1>Bank Sampah</h1>
+    </header>
+    <main>
+        <section id="tps-table">
+            <table>
+                <tbody>
+                    <!-- Data TPS akan dimuat di sini -->
+                    <section id="tps-table">
+                        <h2>Daftar TPS</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID TPS</th>
+                                    <th>Nama TPS</th>
+                                    <th>Lokasi</th>
+                                    <th>Gambar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for tps in data_tps %}
+                                <tr>
+                                    <td>{{ tps[0] }}</td> <!-- ID TPS -->
+                                    <td>{{ tps[1] }}</td> <!-- Nama TPS -->
+                                    <td>{{ tps[2] }}</td> <!-- Lokasi -->
+                                    <td>
+                                        <img src="{{ url_for('static', filename='uploads/' + tps[3]) }}" alt="Gambar TPS" width="100">
+                                    </td> <!-- Gambar -->
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </section>                    
+                </tbody>
+            </table>
+        </section>
+        <section id="pelaporan-form">
+            <h2>Buat Pelaporan</h2>
+            <form action="/create_pelaporan" method="POST">
+                <label for="namapelapor">Nama Pelapor:</label>
+                <input type="text" id="namapelapor" name="namapelapor" required>
+                
+                <label for="judullaporan">Judul Laporan:</label>
+                <input type="text" id="judullaporan" name="judullaporan" required>
+                
+                <label for="isilaporan">Isi Laporan:</label>
+                <textarea id="isilaporan" name="isilaporan" required></textarea>
+                
+                <label for="tanggal">Tanggal:</label>
+                <input type="date" id="tanggal" name="tanggal" required>
+                
+                <label for="nohp_pelapor">No HP Pelapor:</label>
+                <input type="text" id="nohp_pelapor" name="nohp_pelapor" required>
+                
+                <label for="email_pelapor">Email Pelapor:</label>
+                <input type="email" id="email_pelapor" name="email_pelapor" required>
+                
+                <label for="lokasitps">Lokasi TPS:</label>
+                <input type="number" id="lokasitps" name="lokasitps" required>
+                
+                <button type="submit">Kirim Laporan</button>
+                <button type="button"><a href="/templates/adminupdate"></a></button>
+            </form>
+        </section>
+        <section id="kritiksaran-form">
+            <h2>Buat Kritik dan Saran</h2>
+            <form action="/" method="POST">
+                <label for="judulkritik">Judul Kritik:</label>
+                <input type="text" id="judulkritik" name="judulkritik" required>
+                
+                <label for="isikritik">Isi Kritik:</label>
+                <textarea id="isikritik" name="isikritik" required></textarea>
+                
+                <!-- <label for="tglkritik">Tanggal:</label>
+                <input type="date" id="tglkritik" name="tglkritik" required> -->
+                
+                <button type="submit">Kirim Kritik</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Bank Sampah</p>
+    </footer>
 </body>
 </html>

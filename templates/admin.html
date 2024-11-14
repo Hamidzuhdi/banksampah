@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Bank Sampah</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Admin - Bank Sampah</h1>
+    </header>
+    <main>
+        <section id="manage-tps">
+            <h2>Manage TPS</h2>
+            <form id="create-tps-form" action="/admin" method="POST" enctype="multipart/form-data">
+                <h3>Create TPS</h3>
+                <label for="namatps">Nama TPS:</label>
+                <input type="text" id="namatps" name="namatps" required>
+                
+                <label for="lokasi">Lokasi:</label>
+                <input type="text" id="lokasi" name="lokasi" required>
+                
+                <label for="gambar">Gambar URL:</label>
+                <input type="file" id="gambar" name="gambar" required>
+                
+                <button type="submit">Create TPS</button>
+            </form>
+            
+            <section>
+                <button onclick="location.href='/update_tps'" class="btn">Update TPS</button>
+            </section>
+                <form id="delete-tps-form" action="/admin" method="POST">
+                <h3>Delete TPS</h3>
+                <label for="idtps">ID TPS:</label>
+                <input type="number" id="idtps" name="idtps" required>
+                
+                <button type="submit">Delete TPS</button>
+            </form>
+        </section>
+        
+        <section id="manage-pelaporan">
+            <h2>Manage Pelaporan</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Pelaporan</th>
+                        <th>Nama Pelapor</th>
+                        <th>Judul Laporan</th>
+                        <th>Isi Laporan</th>
+                        <th>Tanggal</th>
+                        <th>No HP Pelapor</th>
+                        <th>Email Pelapor</th>
+                        <th>Lokasi TPS</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data Pelaporan akan dimuat di sini -->
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="manage-kritiksaran">
+            <h2>Manage Kritik dan Saran</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Kritik Saran</th>
+                        <th>Judul Kritik</th>
+                        <th>Isi Kritik</th>
+                        <th>Tanggal</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data Kritik Saran akan dimuat di sini -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Bank Sampah</p>
+    </footer>
+</body>
+</html>

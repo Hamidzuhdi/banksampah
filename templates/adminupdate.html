@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="update-tps-form" action="/update_tps" method="POST">
+        <h3>Update TPS</h3>
+        <label for="idtps">ID TPS:</label>
+        <input type="number" id="idtps" name="idtps" required>
+        
+        <label for="namatps">Nama TPS:</label>
+        <input type="text" id="namatps" name="namatps">
+        
+        <label for="lokasi">Lokasi:</label>
+        <input type="text" id="lokasi" name="lokasi">
+        
+        <label for="gambar">Gambar URL:</label>
+        <input type="text" id="gambar" name="gambar">
+        
+        <button type="submit">Update TPS</button>
+    </form>
+</body>
+</html>
